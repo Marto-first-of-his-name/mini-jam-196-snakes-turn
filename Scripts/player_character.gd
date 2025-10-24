@@ -1,3 +1,1 @@
-class_name PlayerCharacter
-
-extends Character
+class_name PlayerCharacter extends Character

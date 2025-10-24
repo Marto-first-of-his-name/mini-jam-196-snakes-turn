@@ -16,7 +16,7 @@ func _ready() -> void:
 func _physics_process(_delta):
 	pass
 	
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_released("Click"):
 		var mouse_pos_global = get_global_mouse_position()
 		var tile_pos = map_to_local(local_to_map(mouse_pos_global))
