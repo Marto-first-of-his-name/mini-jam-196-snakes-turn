@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy30g777qw2rr"]
+
+[ext_resource type="Script" uid="uid://bowxvj5b0psy" path="res://Scripts/character.gd" id="1_ushfy"]
+
+[node name="Character" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_ushfy")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs7fvbvsmiug"]
+
+[ext_resource type="Script" uid="uid://dbgfapfjkoe8e" path="res://Scripts/monkey.gd" id="1_2ru78"]
+[ext_resource type="Texture2D" uid="uid://cipg2161bfc7b" path="res://Assets/sprites/knight.png" id="2_brqkw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kaj0"]
+
+[node name="Monkey" type="CharacterBody2D"]
+script = ExtResource("1_2ru78")
+metadata/_custom_type_script = "uid://dfijyqxmyel7"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -37)
+scale = Vector2(3, 3)
+texture = ExtResource("2_brqkw")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4kaj0")
