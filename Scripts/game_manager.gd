@@ -4,6 +4,7 @@ var is_player_turn := true
 var selected_character : Character
 @export var button_end_turn: Button
 @export var button_end_turn_label: Label
+@export var tile_map_floor_layer: TileMapLayer
 @export var player_characters: Array[PlayerCharacter]
 @export var enemy_characters: Array[EnemyCharacter]
 @export var camera: Camera2D
@@ -24,15 +25,20 @@ func _ready() -> void:
 		character.connect("character_died", on_enemy_character_died)
 
 	# Connect tile clicked signal
-	$FloorAndWallsLayer.connect("tile_clicked", tile_clicked)
+	tile_map_floor_layer.connect("tile_clicked", tile_clicked)
 	
 #func _input(event):
 	#if Input.is_action_just_released("Click"):
 		#print("clikclik")
 
+	
+func _unhandled_input(_event):
+	if Input.is_action_just_released("Click"):
+			tile_clicked(tile_map_floor_layer.mouse_pos_to_exact_tile_pos())
+
 func tile_clicked(tile_pos: Vector2):
 	if selected_character:
-		if (tile_pos - selected_character.position).length() < selected_character.walk_range:
+		if (tile_pos - selected_character.position).length() < selected_character.walk_range and (tile_pos - selected_character.position).length() > 0:
 			selected_character.move_to(tile_pos)
 
 func on_character_clicked(character: Character) -> void:

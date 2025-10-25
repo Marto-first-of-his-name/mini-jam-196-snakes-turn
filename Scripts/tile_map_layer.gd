@@ -15,14 +15,16 @@ func _ready() -> void:
 func _physics_process(_delta):
 	pass
 	
-func _input(_event):
-	if Input.is_action_just_released("Click"):
-		var mouse_pos_global = get_global_mouse_position()
-		var tile_pos = map_to_local(local_to_map(mouse_pos_global))
-		tile_clicked.emit(tile_pos)
+#func _input(_event):
+	#if Input.is_action_just_released("Click"):
+		#var mouse_pos_global = get_global_mouse_position()
+		#var tile_pos = map_to_local(local_to_map(mouse_pos_global))
+		#tile_clicked.emit(tile_pos)
 
-func pos_to_exact_tile_pos(pos: Vector2):
-	return null
+func mouse_pos_to_exact_tile_pos():
+	var mouse_pos_global = get_global_mouse_position()
+	var tile_pos = map_to_local(local_to_map(mouse_pos_global))
+	return tile_pos
 
 #func reachable_tiles(current_tile: Vector2i, tile_range: int) -> Array[Vector2i]:
 	#var all_valid_tiles_in_reach : Array[Vector2i] = []
