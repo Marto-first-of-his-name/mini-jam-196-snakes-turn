@@ -4,6 +4,7 @@
 
 [node name="Character" type="CharacterBody2D"]
 z_index = 2
+y_sort_enabled = true
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_ushfy")
