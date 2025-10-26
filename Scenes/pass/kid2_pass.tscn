@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://dveyi4cceun7c"]
+
+[ext_resource type="Script" uid="uid://dckpwmms3kqpb" path="res://Scenes/seat_withpassenger.gd" id="1_0gvyx"]
+[ext_resource type="Texture2D" uid="uid://cpa4rqtda2des" path="res://Assets/sprites/ourSprites/snakes-and-a-plane_ALL-SPRITES.png" id="2_3wua3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hytlm"]
+atlas = ExtResource("2_3wua3")
+region = Rect2(2900, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6itq"]
+atlas = ExtResource("2_3wua3")
+region = Rect2(3000, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im4ef"]
+atlas = ExtResource("2_3wua3")
+region = Rect2(3100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyxc3"]
+atlas = ExtResource("2_3wua3")
+region = Rect2(3200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10s16"]
+atlas = ExtResource("2_3wua3")
+region = Rect2(3300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2pada"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hytlm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hytlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6itq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im4ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyxc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10s16")
+}],
+"loop": false,
+"name": &"oh",
+"speed": 5.0
+}]
+
+[node name="kid2Pass" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_0gvyx")
+metadata/_custom_type_script = "uid://dckpwmms3kqpb"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2pada")
+animation = &"oh"
+autoplay = "idle"
+frame = 4
+frame_progress = 1.0
+offset = Vector2(0, 20)

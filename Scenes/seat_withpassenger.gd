@@ -1,9 +1,10 @@
-class_name Seat extends StaticBody2D
+class_name SeatWithPassenger extends Node2D
 
-var has_monkey
-var has_snake
+
+@onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
+
+
 # Called when the node enters the scene tree for the first time.
-
 func _ready() -> void:
 	pass # Replace with function body.
 

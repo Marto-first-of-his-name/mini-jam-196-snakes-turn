@@ -9,3 +9,7 @@ func one_action_used():
 	print(actions_available)
 	actions_counter.text = str(actions_available)
 	print(actions_counter.text)
+
+func reset_actions_available():
+	actions_available = max_actions_available
+	actions_counter.text = str(actions_available)

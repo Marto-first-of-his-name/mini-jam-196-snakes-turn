@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctaaucodmgd2f"]
+
+[ext_resource type="Script" uid="uid://dckpwmms3kqpb" path="res://Scenes/seat_withpassenger.gd" id="1_aw4ir"]
+
+[node name="SeatWithPassenger" type="Node2D"]
+script = ExtResource("1_aw4ir")

@@ -23,8 +23,10 @@ func _physics_process(_delta):
 
 func mouse_pos_to_exact_tile_pos():
 	var mouse_pos_global = get_global_mouse_position()
-	var tile_pos = map_to_local(local_to_map(mouse_pos_global))
-	return tile_pos
+	return pos_to_exact_pos(mouse_pos_global)
+
+func pos_to_exact_pos(pos: Vector2):
+	return map_to_local(local_to_map(pos))
 
 #func reachable_tiles(current_tile: Vector2i, tile_range: int) -> Array[Vector2i]:
 	#var all_valid_tiles_in_reach : Array[Vector2i] = []

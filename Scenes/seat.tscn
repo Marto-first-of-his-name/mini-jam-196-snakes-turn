@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://djx7v6dc21kth"]
-
-[ext_resource type="Script" uid="uid://b1mw60q3goaxq" path="res://Scripts/seat.gd" id="1_8faa5"]
-
-[node name="Seat" type="StaticBody2D"]
-script = ExtResource("1_8faa5")

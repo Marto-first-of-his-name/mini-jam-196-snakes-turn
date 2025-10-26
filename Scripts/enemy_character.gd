@@ -1,6 +1,6 @@
 class_name EnemyCharacter extends Character
 
-@export var range_active := 500
+@export var range_active := 400
 
 func move_or_attack(destination = null, target = null):
 	if actions_available>0:
@@ -9,9 +9,10 @@ func move_or_attack(destination = null, target = null):
 				print("attacking", target)
 				attack(target)
 			else:
-				print("moving to", target)
+				print("moving to ", target, " at ", target.position)
+				print("old pos ", position)
 				move_towards(destination, walk_range)
-				print("new pos", position)
+				print("new pos ", position)
 			
 	
 

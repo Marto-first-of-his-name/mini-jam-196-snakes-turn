@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cs7fvbvsmiug"]
+[gd_scene load_steps=12 format=3 uid="uid://cs7fvbvsmiug"]
 
 [ext_resource type="Script" uid="uid://dbgfapfjkoe8e" path="res://Scripts/monkey.gd" id="1_2ru78"]
 [ext_resource type="Texture2D" uid="uid://b0rb4kowwbhg8" path="res://Assets/sprites/ourSprites/snakes-and-a-plane-sprites_4pm.png" id="2_brqkw"]
 [ext_resource type="Texture2D" uid="uid://dhwcel7dlefxi" path="res://Assets/sprites/ourSprites/walk_range.png" id="3_4kaj0"]
+[ext_resource type="Texture2D" uid="uid://cpa4rqtda2des" path="res://Assets/sprites/ourSprites/snakes-and-a-plane_ALL-SPRITES.png" id="3_60efs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kaj0"]
 radius = 11.0
@@ -20,8 +21,12 @@ atlas = ExtResource("2_brqkw")
 region = Rect2(2600, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7js4l"]
-atlas = ExtResource("2_brqkw")
-region = Rect2(2700, 0, 100, 100)
+atlas = ExtResource("3_60efs")
+region = Rect2(4400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idmeg"]
+atlas = ExtResource("3_60efs")
+region = Rect2(4700, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_idmeg"]
 animations = [{
@@ -34,18 +39,30 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_60efs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7js4l")
 }],
 "loop": false,
 "name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7js4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idmeg")
+}],
+"loop": false,
+"name": &"die",
 "speed": 5.0
 }]
 
 [node name="Monkey" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_2ru78")
+walk_range = 300.0
+attack_range = 50.0
+attack_animation_hit_time = 0.4
+time_to_wait_for_die = 0.4
 metadata/_custom_type_script = "uid://dfijyqxmyel7"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -69,7 +86,8 @@ shape = SubResource("CircleShape2D_4kaj0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, 3)
 sprite_frames = SubResource("SpriteFrames_idmeg")
-animation = &"attack"
+animation = &"die"
+frame_progress = 0.76696414
 
 [node name="WalkRange" type="Sprite2D" parent="."]
 visible = false
