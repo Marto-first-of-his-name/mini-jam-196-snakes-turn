@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://euq8kqdufck1"
-path="res://.godot/imported/world_tileset.png-7d0351459d02dec97d7c98fe9a06c85b.ctex"
+uid="uid://dj2jt6hak5os3"
+path="res://.godot/imported/lose.png-edb8c74bff16708334af972b1869b652.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/world_tileset.png"
-dest_files=["res://.godot/imported/world_tileset.png-7d0351459d02dec97d7c98fe9a06c85b.ctex"]
+source_file="res://Assets/sprites/ourSprites/menu stuff/lose.png"
+dest_files=["res://.godot/imported/lose.png-edb8c74bff16708334af972b1869b652.ctex"]
 
 [params]
 

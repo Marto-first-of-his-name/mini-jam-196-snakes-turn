@@ -18,6 +18,9 @@ func reset_actions_available():
 	actions_available = max_actions_available
 	
 
+func one_action_used():
+	actions_available -= 1
+	
 var next_tile_pos := position
 
 func _ready() -> void:
@@ -39,14 +42,15 @@ func move_to(pos: Vector2) -> void:
 	if actions_available > 0:
 		position = pos
 		print(pos)
-		actions_available -= 1
+		one_action_used()
+		
 
 func attack(target: Character):
 	if actions_available > 0:
 		animatedSprite.play("attack")
 		await get_tree().create_timer(animation_hit_time).timeout
 		target.die()
-		actions_available -= 1
+		one_action_used()
 
 func stopAnim():
 	animatedSprite.stop()

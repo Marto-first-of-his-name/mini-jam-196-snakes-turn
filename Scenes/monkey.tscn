@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs7fvbvsmiug"]
+[gd_scene load_steps=10 format=3 uid="uid://cs7fvbvsmiug"]
 
 [ext_resource type="Script" uid="uid://dbgfapfjkoe8e" path="res://Scripts/monkey.gd" id="1_2ru78"]
 [ext_resource type="Texture2D" uid="uid://b0rb4kowwbhg8" path="res://Assets/sprites/ourSprites/snakes-and-a-plane-sprites_4pm.png" id="2_brqkw"]
+[ext_resource type="Texture2D" uid="uid://dhwcel7dlefxi" path="res://Assets/sprites/ourSprites/walk_range.png" id="3_4kaj0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kaj0"]
 radius = 11.0
@@ -69,3 +70,17 @@ shape = SubResource("CircleShape2D_4kaj0")
 position = Vector2(-3, 3)
 sprite_frames = SubResource("SpriteFrames_idmeg")
 animation = &"attack"
+
+[node name="WalkRange" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_4kaj0")
+
+[node name="ActionsCounter" type="Label" parent="."]
+visible = false
+z_index = 4
+z_as_relative = false
+offset_left = 3.0
+offset_top = -60.0
+offset_right = 43.0
+offset_bottom = -37.0
+text = "2"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnccy8vscsoht"
-path="res://.godot/imported/tilesetPlane.png-7bfc6eb78e77bcca4e46b4ca7e345a58.ctex"
+uid="uid://cpa4rqtda2des"
+path="res://.godot/imported/snakes-and-a-plane_ALL-SPRITES.png-6899416cb14152b85255178c3655e50b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/tilesetPlane.png"
-dest_files=["res://.godot/imported/tilesetPlane.png-7bfc6eb78e77bcca4e46b4ca7e345a58.ctex"]
+source_file="res://Assets/sprites/ourSprites/snakes-and-a-plane_ALL-SPRITES.png"
+dest_files=["res://.godot/imported/snakes-and-a-plane_ALL-SPRITES.png-6899416cb14152b85255178c3655e50b.ctex"]
 
 [params]
 

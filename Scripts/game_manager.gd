@@ -1,7 +1,7 @@
 extends Node
 
 var is_player_turn := true
-var selected_character : Character
+var selected_character : PlayerCharacter
 @export var button_end_turn: Button
 @export var button_end_turn_label: Label
 @export var tile_map_floor_layer: TileMapLayer
@@ -44,7 +44,12 @@ func tile_clicked(tile_pos: Vector2):
 func on_character_clicked(character: Character) -> void:
 	if is_player_turn:
 		if character is PlayerCharacter:
+			if selected_character:
+				selected_character.walk_range_sprite.visible = false
+				selected_character.actions_counter.visible = false
 			selected_character = character
+			selected_character.walk_range_sprite.visible = true
+			selected_character.actions_counter.visible = true
 		else: # An enemy was clicked
 			if selected_character: #can only interact with enemies when we have someone selected
 				if (selected_character.position - character.position).length() <= selected_character.attack_range:
@@ -53,6 +58,8 @@ func on_character_clicked(character: Character) -> void:
 func on_player_character_died(character: PlayerCharacter):
 	player_characters.remove_at(player_characters.find(character))
 	character.queue_free()
+	if player_characters.is_empty():
+		get_tree().change_scene_to_file("res://Scenes/game_lost.tscn")
 
 func on_enemy_character_died(character: EnemyCharacter):
 	enemy_characters.remove_at(enemy_characters.find(character))
@@ -60,6 +67,8 @@ func on_enemy_character_died(character: EnemyCharacter):
 
 func end_turn():
 	if is_player_turn:
+		selected_character.walk_range_sprite.visible = false
+		selected_character.actions_counter.visible = false
 		selected_character = null
 		enemy_turn()
 	print("is player turn?", is_player_turn)
