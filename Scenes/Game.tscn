@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://ncen7km562yh"]
+[gd_scene load_steps=30 format=4 uid="uid://ncen7km562yh"]
 
 [ext_resource type="Script" uid="uid://rh4evqfyhylp" path="res://Scripts/game_manager.gd" id="1_kldst"]
 [ext_resource type="Script" uid="uid://sjtqkaer5m1p" path="res://Scripts/tile_map_layer.gd" id="2_kldst"]
@@ -10,10 +10,15 @@
 [ext_resource type="Script" uid="uid://b6q3k0wk8xebi" path="res://Scripts/camera.gd" id="5_b2bpf"]
 [ext_resource type="Texture2D" uid="uid://ba3bybqw5d8no" path="res://Assets/sprites/ourSprites/overhead-closed-tile.png" id="6_71axn"]
 [ext_resource type="Texture2D" uid="uid://yqvlpoxlecre" path="res://Assets/sprites/ourSprites/snake-sprite-monke-test.png" id="6_bf53h"]
+[ext_resource type="Texture2D" uid="uid://hx2ln0vrvhbg" path="res://Assets/sprites/ourSprites/button-directions.png" id="11_8r6kd"]
 [ext_resource type="PackedScene" uid="uid://beu6j2xtglnsw" path="res://Scenes/pass/grey_passenger.tscn" id="11_dahhg"]
 [ext_resource type="PackedScene" uid="uid://dgfx6vil0y3pr" path="res://Scenes/pass/black_pass.tscn" id="12_4q8tf"]
+[ext_resource type="Texture2D" uid="uid://ckgttyg3grnum" path="res://Assets/sprites/ourSprites/button-monkeys.png" id="12_rajel"]
+[ext_resource type="Texture2D" uid="uid://bc1u7sklrjjhb" path="res://Assets/sprites/ourSprites/button-cam-controls.png" id="12_vvhu1"]
+[ext_resource type="Texture2D" uid="uid://bigydrj3ptclw" path="res://Assets/sprites/ourSprites/button-snakes.png" id="13_vvhu1"]
 [ext_resource type="PackedScene" uid="uid://bnu0j462vw85r" path="res://Scenes/pass/blue_pass.tscn" id="13_x3xnh"]
 [ext_resource type="PackedScene" uid="uid://sdq4tym7is20" path="res://Scenes/pass/green_pass.tscn" id="14_8r6kd"]
+[ext_resource type="Texture2D" uid="uid://dc4y2evk7q2t7" path="res://Assets/sprites/ourSprites/menu stuff/button-monkeys-playing.png" id="14_lbihj"]
 [ext_resource type="PackedScene" uid="uid://dveyi4cceun7c" path="res://Scenes/pass/kid2_pass.tscn" id="15_tfod6"]
 [ext_resource type="PackedScene" uid="uid://cbscb0yfeafue" path="res://Scenes/pass/kid_pass.tscn" id="16_rajel"]
 [ext_resource type="PackedScene" uid="uid://dpfq0bbv7wj1t" path="res://Scenes/pass/pink_pass.tscn" id="17_vvhu1"]
@@ -318,13 +323,15 @@ sources/3 = SubResource("TileSetAtlasSource_3so38")
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
-[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("button_end_turn", "button_end_turn_label", "tile_map_floor_layer", "player_characters", "enemy_characters", "passengers", "camera")]
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("button_end_turn", "button_end_turn_monkey", "button_end_turn_snakes", "button_monkeys", "tile_map_floor_layer", "player_characters", "enemy_characters", "passengers", "camera")]
 y_sort_enabled = true
 script = ExtResource("1_kldst")
 button_end_turn = NodePath("Camera2D/ButtonEndTurn")
-button_end_turn_label = NodePath("Camera2D/ButtonEndTurn/ButtonEndTurnLabel")
+button_end_turn_monkey = NodePath("Camera2D/sprite_button_end")
+button_end_turn_snakes = NodePath("Camera2D/sprite_button_snakes")
+button_monkeys = NodePath("Camera2D/sprite_button_monkeys")
 tile_map_floor_layer = NodePath("FloorAndWallsLayer")
-player_characters = [NodePath("Monkey"), NodePath("Monkey2"), NodePath("Monkey3")]
+player_characters = [NodePath("Monkey"), NodePath("Monkey2"), NodePath("Monkey3"), NodePath("Monkey4")]
 enemy_characters = [NodePath("snakes/Snake"), NodePath("snakes/Snake2"), NodePath("snakes/Snake3"), NodePath("snakes/Snake4"), NodePath("snakes/Snake5"), NodePath("snakes/Snake6"), NodePath("snakes/Snake7"), NodePath("snakes/Snake8"), NodePath("snakes/Snake9"), NodePath("snakes/Snake10"), NodePath("snakes/Snake12"), NodePath("snakes/Snake13"), NodePath("snakes/Snake15")]
 passengers = [NodePath("passengers/greyPassenger"), NodePath("passengers/greyPassenger2"), NodePath("passengers/greyPassenger3"), NodePath("passengers/greyPassenger4"), NodePath("passengers/greyPassenger5"), NodePath("passengers/greyPassenger6"), NodePath("passengers/greyPassenger7"), NodePath("passengers/greyPassenger8"), NodePath("passengers/greyPassenger9"), NodePath("passengers/greyPassenger10"), NodePath("passengers/greyPassenger11"), NodePath("passengers/greyPassenger12"), NodePath("passengers/greyPassenger13"), NodePath("passengers/greyPassenger14"), NodePath("passengers/greyPassenger15"), NodePath("passengers/greyPassenger16"), NodePath("passengers/greyPassenger17"), NodePath("passengers/greyPassenger18"), NodePath("passengers/greyPassenger19"), NodePath("passengers/greyPassenger20"), NodePath("passengers/greyPassenger21"), NodePath("passengers/greyPassenger22"), NodePath("passengers/greyPassenger23"), NodePath("passengers/greyPassenger24"), NodePath("passengers/greyPassenger25"), NodePath("passengers/greyPassenger26"), NodePath("passengers/greyPassenger27"), NodePath("passengers/greyPassenger28"), NodePath("passengers/greyPassenger29"), NodePath("passengers/greyPassenger30"), NodePath("passengers/greyPassenger31"), NodePath("passengers/greyPassenger32")]
 camera = NodePath("Camera2D")
@@ -386,31 +393,53 @@ position = Vector2(781, -365)
 position = Vector2(1302, -350)
 
 [node name="Monkey2" parent="GameManager" instance=ExtResource("3_j5yw3")]
-position = Vector2(1105, -450)
+position = Vector2(1050, -474)
 
 [node name="Monkey3" parent="GameManager" instance=ExtResource("3_j5yw3")]
 position = Vector2(1452, -271)
 
+[node name="Monkey4" parent="GameManager" instance=ExtResource("3_j5yw3")]
+position = Vector2(1200, -399)
+
 [node name="Camera2D" type="Camera2D" parent="GameManager"]
 z_index = 7
 position = Vector2(1217, -362)
+zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
 script = ExtResource("5_b2bpf")
 
-[node name="ButtonEndTurn" type="Button" parent="GameManager/Camera2D"]
-offset_left = 183.0
-offset_top = 94.0
-offset_right = 279.0
-offset_bottom = 152.0
-metadata/_edit_use_anchors_ = true
+[node name="sprite_hint" type="Sprite2D" parent="GameManager/Camera2D"]
+position = Vector2(-338, -212)
+scale = Vector2(2, 2)
+texture = ExtResource("11_8r6kd")
 
-[node name="ButtonEndTurnLabel" type="Label" parent="GameManager/Camera2D/ButtonEndTurn"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 19.0
-offset_right = 89.0
-offset_bottom = 42.0
-text = "END TURN"
+[node name="sprite_hint2" type="Sprite2D" parent="GameManager/Camera2D"]
+position = Vector2(330, -198)
+scale = Vector2(2, 2)
+texture = ExtResource("12_vvhu1")
+
+[node name="sprite_button_end" type="Sprite2D" parent="GameManager/Camera2D"]
+position = Vector2(386, 211)
+scale = Vector2(2, 2)
+texture = ExtResource("12_rajel")
+
+[node name="sprite_button_monkeys" type="Sprite2D" parent="GameManager/Camera2D"]
+position = Vector2(387, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("14_lbihj")
+
+[node name="sprite_button_snakes" type="Sprite2D" parent="GameManager/Camera2D"]
+visible = false
+position = Vector2(386, 160)
+scale = Vector2(2, 2)
+texture = ExtResource("13_vvhu1")
+
+[node name="ButtonEndTurn" type="Button" parent="GameManager/Camera2D"]
+offset_left = 340.0
+offset_top = 194.0
+offset_right = 430.0
+offset_bottom = 228.0
+metadata/_edit_use_anchors_ = true
 
 [node name="passengers" type="Node2D" parent="GameManager"]
 y_sort_enabled = true
@@ -512,6 +541,7 @@ position = Vector2(49, 156)
 position = Vector2(-57, 50)
 
 [node name="Music" type="AudioStreamPlayer2D" parent="GameManager"]
+position = Vector2(-304, 394)
 stream = ExtResource("18_x3xnh")
 autoplay = true
 bus = &"Music"

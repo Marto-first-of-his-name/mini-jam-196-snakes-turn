@@ -3,7 +3,9 @@ extends Node
 var is_player_turn := true
 var selected_character : PlayerCharacter
 @export var button_end_turn: Button
-@export var button_end_turn_label: Label
+@export var button_end_turn_monkey: Sprite2D
+@export var button_end_turn_snakes: Sprite2D
+@export var button_monkeys: Sprite2D
 @export var tile_map_floor_layer: TileMapLayer
 @export var player_characters: Array[PlayerCharacter]
 @export var enemy_characters: Array[EnemyCharacter]
@@ -71,6 +73,10 @@ func on_player_character_died(character: PlayerCharacter):
 	if player_characters.is_empty():
 		get_tree().change_scene_to_file("res://Scenes/game_lost.tscn")
 
+func _input(_event):
+	if Input.is_action_just_released("exit"):
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
 func on_enemy_character_died(character: EnemyCharacter):
 	enemy_characters.remove_at(enemy_characters.find(character))
 	character.queue_free()
@@ -86,7 +92,9 @@ func end_turn():
 
 func enemy_turn():
 	is_player_turn = false
-	button_end_turn_label.text = "SNAKES' TURN"
+	button_end_turn_monkey.visible = false
+	button_end_turn_snakes.visible = true
+	button_monkeys.visible = false
 	for enemy in enemy_characters:
 		enemy.reset_actions_available()
 	for enemy in enemy_characters:
@@ -113,7 +121,9 @@ func check_if_passenger_nearby(pos: Vector2):
 
 func player_turn():
 	is_player_turn = true
-	button_end_turn_label.text = "END TURN"
+	button_end_turn_monkey.visible = true
+	button_end_turn_snakes.visible = false
+	button_monkeys.visible = true
 	for player in player_characters:
 		player.reset_actions_available()
 

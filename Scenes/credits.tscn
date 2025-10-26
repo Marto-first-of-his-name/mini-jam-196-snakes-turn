@@ -10,3 +10,10 @@ script = ExtResource("1_gryuy")
 position = Vector2(576, 324)
 scale = Vector2(0.40652448, 0.40652448)
 texture = ExtResource("2_ccovl")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 685.0
+offset_top = 624.0
+offset_right = 899.0
+offset_bottom = 647.0
+text = "Press esc to return to menu"
