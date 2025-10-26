@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbscb0yfeafue"]
+[gd_scene load_steps=10 format=3 uid="uid://cbscb0yfeafue"]
 
 [ext_resource type="Script" uid="uid://dckpwmms3kqpb" path="res://Scenes/seat_withpassenger.gd" id="1_8vbrq"]
 [ext_resource type="Texture2D" uid="uid://cpa4rqtda2des" path="res://Assets/sprites/ourSprites/snakes-and-a-plane_ALL-SPRITES.png" id="2_b3510"]
+[ext_resource type="AudioStream" uid="uid://dmmwxjb6j7psg" path="res://Assets/audio/180005__gentlemanwalrus__shocked-gasp.wav" id="3_a2ny8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vf7u"]
 atlas = ExtResource("2_b3510")
@@ -64,3 +65,7 @@ sprite_frames = SubResource("SpriteFrames_2pada")
 animation = &"oh"
 autoplay = "idle"
 offset = Vector2(0, 20)
+
+[node name="Audio2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a2ny8")
+bus = &"SFX"

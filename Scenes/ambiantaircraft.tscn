@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwuul4iu2ftbs"]
+
+[ext_resource type="AudioStream" uid="uid://ck3avh41qvs27" path="res://Assets/audio/ambient-aircraft-interior-loop.wav" id="1_vmlp6"]
+
+[node name="ambiantaircraft" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_vmlp6")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"

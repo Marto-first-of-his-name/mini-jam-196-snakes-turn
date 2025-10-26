@@ -43,6 +43,7 @@ func tile_clicked(tile_pos: Vector2):
 		if (tile_pos - selected_character.position).length() < selected_character.walk_range and (tile_pos - selected_character.position).length() > 0:
 			selected_character.move_to(tile_pos)
 			if (selected_character.position - Vector2(-300, 400)).length() < 10.0:
+				await get_tree().create_timer(1).timeout
 				get_tree().change_scene_to_file("res://Scenes/game_won.tscn")
 
 func on_character_clicked(character: Character) -> void:
@@ -105,6 +106,10 @@ func check_if_passenger_nearby(pos: Vector2):
 	for passenger in passengers:
 		if (passenger.position-pos).length() < 40:
 			passenger.animatedSprite.play("oh")
+			if passenger.audio1:
+				passenger.audio1.play()
+			elif passenger.audio2:
+				passenger.audio2.play()
 
 func player_turn():
 	is_player_turn = true

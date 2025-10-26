@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgfx6vil0y3pr"]
+[gd_scene load_steps=8 format=3 uid="uid://dgfx6vil0y3pr"]
 
 [ext_resource type="Script" uid="uid://dckpwmms3kqpb" path="res://Scenes/seat_withpassenger.gd" id="1_r06l7"]
 [ext_resource type="Texture2D" uid="uid://cpa4rqtda2des" path="res://Assets/sprites/ourSprites/snakes-and-a-plane_ALL-SPRITES.png" id="2_0ken0"]
+[ext_resource type="AudioStream" uid="uid://dt12x4gtokhw7" path="res://Assets/audio/801386__sadiquecat__fear-ohno-ohno-ohno.wav" id="3_oyhia"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mknlb"]
 atlas = ExtResource("2_0ken0")
@@ -50,3 +51,7 @@ sprite_frames = SubResource("SpriteFrames_2pada")
 animation = &"idle"
 autoplay = "idle"
 offset = Vector2(0, 20)
+
+[node name="Audio1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oyhia")
+bus = &"SFX"

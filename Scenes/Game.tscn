@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://ncen7km562yh"]
+[gd_scene load_steps=25 format=4 uid="uid://ncen7km562yh"]
 
 [ext_resource type="Script" uid="uid://rh4evqfyhylp" path="res://Scripts/game_manager.gd" id="1_kldst"]
 [ext_resource type="Script" uid="uid://sjtqkaer5m1p" path="res://Scripts/tile_map_layer.gd" id="2_kldst"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dveyi4cceun7c" path="res://Scenes/pass/kid2_pass.tscn" id="15_tfod6"]
 [ext_resource type="PackedScene" uid="uid://cbscb0yfeafue" path="res://Scenes/pass/kid_pass.tscn" id="16_rajel"]
 [ext_resource type="PackedScene" uid="uid://dpfq0bbv7wj1t" path="res://Scenes/pass/pink_pass.tscn" id="17_vvhu1"]
+[ext_resource type="AudioStream" uid="uid://dlmu118uelgac" path="res://Assets/audio/weather-forecast-type-beat_by-yellowtree_jepo-loop.wav" id="18_x3xnh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2irst"]
 texture = ExtResource("4_fgofq")
@@ -393,7 +394,6 @@ position = Vector2(1452, -271)
 [node name="Camera2D" type="Camera2D" parent="GameManager"]
 z_index = 7
 position = Vector2(1217, -362)
-zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("5_b2bpf")
 
@@ -510,3 +510,8 @@ position = Vector2(49, 156)
 
 [node name="greyPassenger32" parent="GameManager/passengers" instance=ExtResource("14_8r6kd")]
 position = Vector2(-57, 50)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="GameManager"]
+stream = ExtResource("18_x3xnh")
+autoplay = true
+bus = &"Music"

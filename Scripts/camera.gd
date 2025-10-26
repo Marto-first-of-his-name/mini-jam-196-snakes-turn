@@ -5,7 +5,7 @@ const SPEED_TR := 500
 const SPEED_ZOOM := 20
 
 var zoom_change := 0
-var new_zoom:float = 2
+var new_zoom:float = 1.3
 var direction := Vector2(0,0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

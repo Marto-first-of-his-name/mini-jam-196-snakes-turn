@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8mxi8s372uvk"]
+[gd_scene load_steps=11 format=3 uid="uid://b8mxi8s372uvk"]
 
 [ext_resource type="Script" uid="uid://bio4pvrtkhwx1" path="res://Scripts/snake.gd" id="1_16tbv"]
 [ext_resource type="Texture2D" uid="uid://b0rb4kowwbhg8" path="res://Assets/sprites/ourSprites/snakes-and-a-plane-sprites_4pm.png" id="2_pox6b"]
 [ext_resource type="Texture2D" uid="uid://cpa4rqtda2des" path="res://Assets/sprites/ourSprites/snakes-and-a-plane_ALL-SPRITES.png" id="3_rku0m"]
 [ext_resource type="Texture2D" uid="uid://cl15ggkob5ve1" path="res://Assets/sprites/ourSprites/snacke attack.png" id="4_lmvgn"]
+[ext_resource type="AudioStream" uid="uid://b0a60ufr7figy" path="res://Assets/audio/sugar-packet-rustle_SNAKE.wav" id="5_pnn8g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rku0m"]
 radius = 7.071068
@@ -77,3 +78,7 @@ shape = SubResource("CircleShape2D_rku0m")
 position = Vector2(-4, 8)
 sprite_frames = SubResource("SpriteFrames_p48en")
 animation = &"die"
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_pnn8g")
+bus = &"SFX"

@@ -8,6 +8,7 @@ const TILE_SIZE := Vector2i(100,50) #change this to 100 50
 
 @export var SPEED = 300.0
 @onready var button: Button = $Button
+@onready var attack_sound: AudioStreamPlayer2D = $AttackSound
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var walk_range: float
 @export var attack_range: float
@@ -53,6 +54,7 @@ func move_to(pos: Vector2) -> void:
 func attack(target: Character):
 	if actions_available > 0:
 		animatedSprite.play("attack")
+		attack_sound.play()
 		target.die()
 		await get_tree().create_timer(attack_animation_hit_time).timeout
 		one_action_used()

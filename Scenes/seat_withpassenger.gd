@@ -2,7 +2,8 @@ class_name SeatWithPassenger extends Node2D
 
 
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var audio1: AudioStreamPlayer2D = $Audio1
+@onready var audio2: AudioStreamPlayer2D = $Audio2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

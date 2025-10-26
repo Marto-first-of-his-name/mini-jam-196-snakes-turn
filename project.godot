@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Mini Jam 196 Snakes Turn"
-run/main_scene="uid://ncen7km562yh"
+run/main_scene="uid://cpqmk0oupamyx"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Ambiantaircraft="*res://Scenes/ambiantaircraft.tscn"
 
 [display]
 
